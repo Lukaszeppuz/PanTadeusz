@@ -19,7 +19,15 @@
                 <div class="list-group">
                     <a class="list-group-item list-group-item-primary"><i class="bi bi-list-columns"></i> Spis treści</a>
                     <a href="./" class="list-group-item list-group-item-action"><i class="bi bi-house-fill"></i> Strona główna</a>
-                    <a href="./k1.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 1</a>
+                    
+                    <?php 
+                        for ($i = 1; $i <= 12; $i++) {
+                            echo('<a href="./?k='.$i.'" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga '.$i.'</a>');
+                        }
+
+                    ?>
+                    
+                    <!-- <a href="./k1.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 1</a>
                     <a href="./k2.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 2</a>
                     <a href="./k3.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 3</a>
                     <a href="./k4.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 4</a>
@@ -30,17 +38,31 @@
                     <a href="./k9.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 9</a>
                     <a href="./k10.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 10</a>
                     <a href="./k11.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 11</a>
-                    <a href="./k12.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 12</a>
+                    <a href="./k12.html" class="list-group-item list-group-item-action"><i class="bi bi-bookmark-fill"></i> Księga 12</a> -->
                   </div>
 
             </div>
             <div class="col-9">
-                <img src="./pan-tadeusz.jpg" alt="Pan Tadeusz" class="img-fluid rounded">  
+                <?php 
+
+                    if(isset($_GET['k'])) {
+                         include_once("k" . $_GET['k'] . ".html");
+                        // include_once("k1.html");
+
+                    } 
+                    // elseif (!empty($argv[1])) {
+
+                    // }
+                    else {
+                        echo "<img src='./pan-tadeusz.jpg' alt='Pan Tadeusz' class='img-fluid rounded'>";
+                    }
+                ?>
+
             </div>
         </div>
     </div>
 
-    <footer class="container py-3 my-4 border-top text-body-secondary">
+    <footer class="container py-3 my-4 border-top text-body-secondary fixed-bottom alert alert-primary text-end">
         &copy;  Lukasz Czerwinski, Akademia Nauk Stosowanych w Nowym Targu 
 
       
